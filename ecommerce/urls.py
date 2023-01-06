@@ -1,11 +1,3 @@
-"""
-
-Developed By : sumit kumar
-facebook : fb.com/sumit.luv
-Youtube :youtube.com/lazycoders
-
-
-"""
 from django.contrib import admin
 from django.urls import path
 from ecom import views
@@ -53,6 +45,7 @@ urlpatterns = [
     path('cart', views.cart_view,name='cart'),
     path('remove-from-cart/<int:pk>', views.remove_from_cart_view,name='remove-from-cart'),
     path('customer-address', views.customer_address_view,name='customer-address'),
+    path('customer-addresss/<int:pk>', views.customer_address_views,name='customer-addresss'),
     path('payment-success', views.payment_success_view,name='payment-success'),
 
 

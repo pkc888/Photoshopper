@@ -161,7 +161,7 @@ p {
 </style>
 <br>
 <div class="container">
-    <header class="card-header" style="text-align:center; font-size: 21px"> My Orders / Tracking </header>
+    <header class="card-header" style="text-align:center; font-size: 21px"> History </header>
 
     {% for products,order in data %}
 
@@ -182,13 +182,14 @@ p {
 
                   </figure>
                 </li>
-                <li class="col-md-4">
+                <li class="col-md-4 hidden">
                     <div class="col"> <strong>Shipment Address:</strong> <br> {{order.address}}</div>
                 </li>
                 <li class="col-md-4">
                     <div class="col"> <strong>Status:</strong> <br>
+                        <td> <span class="label label-success" style="font-size: 12px; border-radius: 30px;">Completed</span></td>
                     
-                        {% if order.status == 'Pending'%}
+                        <!-- {% if order.status == 'Pending'%}
                         <td> <span class="label label-info" style="font-size: 12px; border-radius: 30px;">{{order.status}}</span></td>
                         {% elif order.status == 'Delivered' %}
                         <td> <span class="label label-success" style="font-size: 12px; border-radius: 30px;">{{order.status}}</span></td>
@@ -196,17 +197,20 @@ p {
                         <td> <span class="label label-default" style="font-size: 12px; border-radius: 30px;">{{order.status}}</span></td>
                         {%else%}
                           <td> <span class="label label-primary" style="font-size: 12px; border-radius: 30px;">{{order.status}}</span></td>
-                        {%endif%}
+                        {%endif%} -->
                     
                     
                     </div> <br>
                     <h4><a style="text-decoration:none;" href="{% url 'download-invoice' order.id product.id  %}" ><button class="btn btn-danger btn-sm">Download Invoice</button></a></h4>
                 </li>
+                <li class="col-md-4">
+                    <h4><a style="text-decoration:none;" href="{% static product.product_image.url %}" download="downlaod" ><button class="btn btn-success btn-sm">Download Photo</button></a></h4>
+                </li>
                 {%endfor%}
             </ul>
             <hr>
 
-            <div class="track">
+            <div class="track hidden">
                 {%if order.status == 'Pending' %}
                 <div class="step active"> <span class="icon"> <i style="padding-top:3px; padding-right:25px;" class="fa fa-spinner"></i> </span> <span class="text">Order Pending</span> </div>
                 <div class="step "> <span class="icon"> <i style="padding-top:3px; padding-right:25px;" class="fa fa-check"></i> </span> <span class="text"> Order Confirmed</span> </div>

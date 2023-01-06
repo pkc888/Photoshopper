@@ -17,7 +17,7 @@
           <tr>
             <th>Customer</th>
             <th>Contact</th>
-            <th>Shipment Address</th>
+            
             <th>Product</th>
             <th>Image</th>
             <th>Status</th>
@@ -29,22 +29,22 @@
           {% for c in customer %}
           <td> {{c.get_name}}</td>
           <td>{{c.mobile}}</td>
-          <td>{{order.address}}</td>
+          
 
           {% endfor %}
           {% for p in product %}
           <td> {{p.name}}</td>
           <td> <img src="{% static p.product_image.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
-
-          {% if order.status == 'Pending'%}
+          <td> <span class="label label-success">Completed</span></td>
+          <!-- {% if order.status == 'Pending'%}
           <td> <span class="label label-info">{{order.status}}</span></td>
           {% elif order.status == 'Delivered' %}
           <td> <span class="label label-success">{{order.status}}</span></td>
           {% elif order.status == 'Out for Delivery' %}
           <td> <span class="label label-warning">{{order.status}}</span></td>
           {%else%}
-            <td> <span class="label label-primary">{{order.status}}</span></td>
-          {%endif%}
+            <td> <span class="label label-primary">{{order.status}}</span></td> -->
+          <!-- {%endif%} -->
           {% endfor %}
         </tr>
         {% endfor %}
